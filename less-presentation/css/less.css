@@ -182,6 +182,7 @@ body     { pointer-events: none; }
 /* movie */
 #movie video {
   width: 900px;
+  z-index: 5;
 }
 
 /* functions */
@@ -189,17 +190,32 @@ body     { pointer-events: none; }
   line-height: 1.1
 }
 
+#functions-3 .half {
+  margin-top: 15px;
+  float: left;
+  width: 45%;
+}
+
 /* overview */
 #overview p {
-  margin-top: 400px;
-  font-size: 64px;
+  font-size: 84px;
   text-align: center;
+  -ms-transform: translate(0px,-200px);
+  -webkit-transform: translate(0px,-200px);
+  -o-transform: translate(0px,-200px);
+  -moz-transform: translate(0px,-200px);
+  transform: translate(0px,-200px);
 }
 
 
 /* code slides */
 .code {
   padding: 0;
+}
+
+
+.code ul {
+  overflow: hidden;
 }
 
 .code li {
@@ -235,6 +251,13 @@ body     { pointer-events: none; }
 
 .code p {
   margin-bottom: 20px;
+}
+
+.code small {
+  display: block;
+  clear: both;
+  padding-top: 40px;
+  font-size: 22px;
 }
 
 .code li p {

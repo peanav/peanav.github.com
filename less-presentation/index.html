@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8" />
-    <title>less - the dynamic stylesheet language</title>
+    <title>LESS - the dynamic stylesheet language</title>
     <link href="css/less.css" rel="stylesheet" />
 </head>
 <body>
@@ -73,7 +73,7 @@
     <div id="nesting-2" class="step" data-x="1800" data-y="500" data-scale="1">
       <p>Rather than constructing long selector names to specify inheritance, in Less you can simply nest selectors inside other selectors.</p>
     </div>
-    <div id="nesting-3" class="step code" data-x="1800" data-y="1300" data-scale="2">
+    <div id="nesting-3" class="step code" data-x="1800" data-y="1400" data-scale="2">
       <ul>
         <li>
           <p>LESS</p>
@@ -128,7 +128,7 @@
     <div id="variables-2" class="step" data-x="4500" data-y="500" data-scale="1">
       <p>Variables allow you to specify widely used values in a single place, and then re-use them throughout the style sheet, making global changes as easy as changing one line of code.</p>
     </div>
-    <div id="variables-3" class="step code" data-x="4500" data-y="1200" data-scale="2">
+    <div id="variables-3" class="step code" data-x="4500" data-y="1400" data-scale="2">
       <h2>Comment from a sample css file</h2>
       <div>
       <pre>
@@ -142,7 +142,7 @@
       </pre>
       </div>
     </div>
-    <div id="variables-4" class="step code" data-x="4500" data-y="2100" data-scale="2">
+    <div id="variables-4" class="step code" data-x="4500" data-y="2500" data-scale="2">
       <ul>
         <li>
           <p>LESS</p>
@@ -183,6 +183,7 @@ h3 {
 </pre>
         </li>
       </ul>
+      <small>Note that variables in LESS are actually ‘constants’ in that they can only be defined once.</small>
     </div>
 
     <div id="mixin-1" class="step" data-x="8300" data-y="0" data-scale="5">
@@ -191,16 +192,16 @@ h3 {
     <div id="mixin-2" class="step" data-x="7000" data-y="500" data-scale="1">
       <p>Mixins allow you to embed all the properties of a class into another class by simply including the class name as one of its properties.</p>
     </div>
-    <div id="mixin-3" class="step code" data-x="7000" data-y="1200" data-scale="2">
+    <div id="mixin-3" class="step code" data-x="7000" data-y="1400" data-scale="2">
       <ul>
         <li>
           <p>LESS</p>
 <pre>
           <code>
 .rounded-corners (@radius: 5px) {
-  border-radius: @radius;
   -webkit-border-radius: @radius;
   -moz-border-radius: @radius;
+  border-radius: @radius;
 }
 
 #header {
@@ -218,15 +219,58 @@ h3 {
 <pre>
           <code>
 #header {
-  border-radius: 5px;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
+  border-radius: 5px;
 }
 
 #footer {
-  border-radius: 10px;
   -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
+  border-radius: 10px;
+}
+          </code>
+</pre>
+        </li>
+      </ul>
+    </div>
+    <div id="mixin-4" class="step code" data-x="7000" data-y="2800" data-scale="2">
+      <p>In LESS, it is possible to include properties of from one ruleset into another ruleset</p>
+      <ul>
+        <li>
+          <p>LESS</p>
+<pre>
+          <code>
+.rounded-corners (@radius: 5px) {
+  -webkit-border-radius: @radius;
+  -moz-border-radius: @radius;
+  border-radius: @radius;
+}
+
+.button (@color) {
+  .rounded-corners(10px);
+  background: @color;
+  color: #fff;
+  border: solid 1px #333;
+}
+
+input[type="text"] {
+  .button(#666);
+}
+          </code>
+</pre>
+        </li>
+        <li>
+          <p>Compiled CSS</p>
+<pre>
+          <code>
+input[type="text"]
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  background: #666;
+  color: #fff;
+  border: solid 1px #333;
 }
           </code>
 </pre>
@@ -241,7 +285,7 @@ h3 {
     <div id="operations-2" class="step" data-x="9600" data-y="500" data-scale="1">
       <p>Operations let you add, subtract, divide and multiply property values and colors, giving you the power to create complex relationships between properties.</p>
     </div>
-    <div id="operations-3" class="step code" data-x="9600" data-y="1200" data-scale="2">
+    <div id="operations-3" class="step code" data-x="9600" data-y="1400" data-scale="2">
       <ul>
         <li>
           <p>LESS</p>
@@ -280,7 +324,7 @@ footer {
         </li>
       </ul>
     </div>
-    <div id="operations-4" class="step code vertical" data-x="9600" data-y="2200" data-scale="2">
+    <div id="operations-4" class="step code vertical" data-x="9600" data-y="2800" data-scale="2">
       <p>You can use brackets in operations</p>
       <ul>
         <li>
@@ -317,9 +361,9 @@ footer {
     <div id="functions-2" class="step" data-x="12500" data-y="500" data-scale="1">
       <p>Functions map one-to-one with JavaScript code, allowing you to manipulate values however you want.</p>
     </div>
-    <div id="functions-3" class="step list" data-x="12500" data-y="1200" data-scale="2">
+    <div id="functions-3" class="step list" data-x="12500" data-y="1400" data-scale="2">
     <p>List of Color Functions</p>
-    <ul>
+    <ul class="half">
       <li>lighten(@color, 10%);</li>
       <li>darken(@color, 10%);</li>
       <li>&nbsp;</li>
@@ -330,8 +374,14 @@ footer {
       <li>fadeout(@color, 10%);</li>
       <li>fade(@color, 50%);</li>
     </ul>
+    <ul class="half">
+      <li>spin(@color, 10);</li>
+      <li>spin(@color, -10);</li>
+      <li>&nbsp;</li>
+      <li>mix(@color1, @color2);</li>
+    </ul>
   </div>
-    <div id="functions-4" class="step code vertical" data-x="12500" data-y="2400" data-scale="2">
+    <div id="functions-4" class="step code vertical" data-x="12500" data-y="2600" data-scale="2">
       <p>Using the  Color Functions</p>
       <ul>
         <li>
@@ -349,10 +399,31 @@ footer {
         </li>
       </ul>
     </div>
+    <div id="functions-5" class="step list" data-x="12500" data-y="3800" data-scale="2">
+    <p>List of Math Functions</p>
+    <ul class="half">
+      <li>round(1.67);</li>
+      <li>ceil(2.4);</li>
+      <li>floor(2.6);</li>
+      <li>&nbsp;</li>
+      <li>percentage(0.5);</li>
+    </ul>
+  </div>
 
 
-    <div id="overview" class="step" data-x="6500" data-y="1500" data-scale="15">
+    <div id="overview" class="step" data-x="6500" data-y="0" data-scale="15">
       <p>Questions?</p>
+    </div>
+
+    <div id="more-to-learn" class="step" data-x="10100" data-y="-2950" data-scale="1">
+      <h1>More to learn</h1>
+      <p>- Namespaces</p>
+      <p>- Scope</p>
+      <p>- Comments</p>
+      <p>- Importing</p>
+      <p>- String interpolation</p>
+      <p>- JavaScript evaluation</p>
+
     </div>
 
 </div>
@@ -360,6 +431,6 @@ footer {
 
 <script src="js/impress.js"></script>
 <script>impress();</script>
-<script src="/js/hiless.js"></script>
+<script src="js/hiless.js"></script>
 </body>
 </html>
