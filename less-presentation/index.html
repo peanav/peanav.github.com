@@ -409,6 +409,54 @@ footer {
       <li>percentage(0.5);</li>
     </ul>
   </div>
+  <div id="functions-6" class="step" data-x="12500" data-y="4700" data-scale="2">
+    <h1>Guarded Mixins</h1>
+    <p>Mixins with Functions</p>
+    <p>The "if" statement</p>
+  </div>
+    <div id="functions-7" class="step code vertical" data-x="12500" data-y="5700" data-scale="2">
+      <p>A guarded mixin in action</p>
+      <ul>
+        <li>
+          <p>LESS</p>
+<pre>
+          <code>
+.a(@color) when (lightness(@color) >= 50%) {
+  background: #000;
+}
+
+.a(@color) when (lightness(@color) < 50%) {
+  background: #fff;
+}
+
+.a(@color) {
+  color: @color;
+}
+          </code>
+</pre>
+        </li>
+      </ul>
+    </div>
+    <div id="functions-8" class="step list" data-x="12500" data-y="7000" data-scale="2">
+    <p>Useful functions for guards</p>
+    <ul class="half">
+      <li>iscolor</li>
+      <li>isnumber</li>
+      <li>isstring</li>
+      <li>iskeyword</li>
+      <li>isurl</li>
+      <li>ispixel</li>
+      <li>ispercentage</li>
+      <li>isem</li>
+    </ul>
+    <ul class="half">
+      <li></li>
+      <li>hue(@color);</li>
+      <li>saturation(@color);</li>
+      <li>lightness(@color);</li>
+      <li>alpha(@color);</li>
+    </ul>
+  </div>
 
 
     <div id="overview" class="step" data-x="6500" data-y="0" data-scale="15">
@@ -419,10 +467,10 @@ footer {
       <h1>More to learn</h1>
       <p>- Namespaces</p>
       <p>- Scope</p>
-      <p>- Comments</p>
       <p>- Importing</p>
       <p>- String interpolation</p>
       <p>- JavaScript evaluation</p>
+      <p>- Server-Side Options</p>
 
 
     </div>

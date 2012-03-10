@@ -190,7 +190,7 @@ body     { pointer-events: none; }
   line-height: 1.1
 }
 
-#functions-3 .half {
+#functions-3 .half, #functions-8 .half {
   margin-top: 15px;
   float: left;
   width: 45%;
